@@ -3,4 +3,6 @@
     <string name="appName">AQUA SHOTS</string>
     <string name="enter">ENTER</string>
     <string name="target">AQUA SHOTS TARGET</string>
+    <string name="settings">SETTINGS</string>
+    <string name="weight">Enter Weight</string>
 </resources>
