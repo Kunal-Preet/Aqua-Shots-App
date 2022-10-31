@@ -5,4 +5,5 @@
     <string name="target">AQUA SHOTS TARGET</string>
     <string name="settings">SETTINGS</string>
     <string name="weight">Enter Weight</string>
+    <string name="notify">Notification Toggle</string>
 </resources>
