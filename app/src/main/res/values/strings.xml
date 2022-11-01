@@ -6,4 +6,9 @@
     <string name="settings">SETTINGS</string>
     <string name="weight">Enter Weight</string>
     <string name="notify">Notification Toggle</string>
+    <string name="workout">Workout Duration</string>
+    <string name="wake">Wake up time</string>
+    <string name="sleep">Sleep Time</string>
+    <string name="custom">Custom Target</string>
+    <string name="update">Update</string>
 </resources>
