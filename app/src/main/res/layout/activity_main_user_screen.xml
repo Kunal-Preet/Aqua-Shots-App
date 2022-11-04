@@ -48,42 +48,42 @@
         app:rowCount="2">
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/iV50"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10px"
             app:srcCompat="@drawable/fifty_ml" />
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/iV100"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10px"
             app:srcCompat="@drawable/hundred_ml" />
 
         <ImageView
-            android:id="@+id/imageView4"
+            android:id="@+id/iV150"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10px"
             app:srcCompat="@drawable/one_fifty_ml" />
 
         <ImageView
-            android:id="@+id/imageView5"
+            android:id="@+id/iV300"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10px"
             app:srcCompat="@drawable/three_hundred_ml" />
 
         <ImageView
-            android:id="@+id/imageView6"
+            android:id="@+id/iV500"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10px"
             app:srcCompat="@drawable/five_hundred_ml" />
 
         <ImageView
-            android:id="@+id/imageView8"
+            android:id="@+id/iVcustom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10px"
@@ -92,36 +92,37 @@
     </androidx.gridlayout.widget.GridLayout>
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/totalTV"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="/0 ml"
-        android:textColor="#4E558A"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.098"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTarget"
-        app:layout_constraintVertical_bias="0.156" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="0"
+        android:layout_marginEnd="240dp"
+        android:text="0 ml"
+        android:textAlignment="viewStart"
         android:textColor="#4E558A"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gridLayout"
-        app:layout_constraintEnd_toStartOf="@+id/textView4"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTarget"
+        app:layout_constraintVertical_bias="0.156" />
+
+    <TextView
+        android:id="@+id/intakeTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="0"
+        android:textAlignment="viewStart"
+        android:textColor="#4E558A"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTarget"
         app:layout_constraintVertical_bias="0.156" />
 
     <ProgressBar
-        android:id="@+id/progressBar2"
+        android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="1000px"
         android:layout_height="wrap_content"
@@ -129,7 +130,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/totalTV"
         app:layout_constraintVertical_bias="0.103" />
 
     <Switch
@@ -145,5 +146,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gridLayout"
         app:layout_constraintVertical_bias="0.407" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="of "
+        android:textColor="#4E558A"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toTopOf="@+id/progressBar"
+        app:layout_constraintEnd_toStartOf="@+id/totalTV"
+        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintStart_toEndOf="@+id/intakeTV"
+        app:layout_constraintTop_toBottomOf="@+id/textViewTarget"
+        app:layout_constraintVertical_bias="0.656" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
