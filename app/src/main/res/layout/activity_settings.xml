@@ -54,19 +54,19 @@
         app:layout_constraintVertical_bias="0.073" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/wakeTimeBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/wake"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button2"
+        app:layout_constraintEnd_toStartOf="@+id/sleepTimeBtn"
         app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.443" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/sleepTimeBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="64dp"
@@ -120,7 +120,7 @@
         app:layout_constraintVertical_bias="0.149" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/customTargetET"
         android:layout_width="185dp"
         android:layout_height="48dp"
         android:ems="10"
@@ -135,7 +135,7 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/editTextNumber2"
+        android:id="@+id/weightET"
         android:layout_width="185dp"
         android:layout_height="48dp"
         android:layout_marginTop="156dp"
@@ -149,24 +149,25 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextNumber3"
+        android:id="@+id/workoutET"
         android:layout_width="185dp"
         android:layout_height="48dp"
         android:ems="10"
         android:hint="In min/day"
         android:inputType="number"
         android:textColorHint="#4E558A"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/sleepTimeBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber2"
+        app:layout_constraintTop_toBottomOf="@+id/weightET"
         app:layout_constraintVertical_bias="0.313" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/updateBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="onClickUpdate"
         android:text="@string/update"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
