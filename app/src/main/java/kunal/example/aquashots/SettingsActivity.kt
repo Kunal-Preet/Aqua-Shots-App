@@ -32,7 +32,7 @@ class SettingsActivity : AppCompatActivity() {
 
     fun onClickUpdate(view: View) {
         if (!TextUtils.isEmpty(customET.text.toString())){
-           MainUserScreen.totalIntake = parseInt(customET.text.toString())
+            MainUserScreen.totalIntake = parseInt(customET.text.toString())  //User can set their own target here
 
         }
         else{
