@@ -1,9 +1,11 @@
 package kunal.example.aquashots
 
+import android.content.DialogInterface
 import android.content.Intent
 import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.InputType
 import android.util.Log
 import android.view.View
 import android.widget.*
@@ -27,7 +29,8 @@ class MainUserScreen : AppCompatActivity(), View.OnClickListener {
     lateinit var iv300: ImageView
     lateinit var iv500: ImageView
     lateinit var ivCustom: ImageView
-    var progress: Double = 0.000
+    var inputVal: Int = 0
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +56,7 @@ class MainUserScreen : AppCompatActivity(), View.OnClickListener {
         progressBar.isVisible = true
         progressBar.progress = 0
         progressBar.max = 1000
+
 
 
 
@@ -130,7 +134,26 @@ class MainUserScreen : AppCompatActivity(), View.OnClickListener {
                 progressBar.progress += 500
             }
             R.id.iVcustom ->{
+                val input = EditText(this)
+                val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+                builder.setTitle("Custom Intake : ")
+                input.hint = "Enter amount in ml"
+                input.inputType = InputType.TYPE_CLASS_NUMBER
+                builder.setView(input)
+                builder.setPositiveButton("OK") { _, _ ->
+                    input.text.toString()
+                    inputVal = parseInt(input.text.toString())
+                    intakeTV.text = (parseInt(intakeTV.text.toString()) + inputVal).toString()
+                    progressBar.progress += inputVal
+                }
+                builder.setNegativeButton("CANCEL") { dialog, _ -> dialog.cancel() }
+                builder.show()
+
+
+
             }
         }
     }
-}
+
+
+    }
