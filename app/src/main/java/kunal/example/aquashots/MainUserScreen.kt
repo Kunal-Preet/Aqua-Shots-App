@@ -15,6 +15,7 @@ class MainUserScreen : AppCompatActivity(), View.OnClickListener {
 
     companion object{
         var totalIntake: Int = 0
+        var progressBarProgress = 0
     }
     lateinit var settingsImgView: ImageView
     lateinit var totalTV: TextView
@@ -26,7 +27,7 @@ class MainUserScreen : AppCompatActivity(), View.OnClickListener {
     lateinit var iv300: ImageView
     lateinit var iv500: ImageView
     lateinit var ivCustom: ImageView
-    var progress: Double = 0.0
+    var progress: Double = 0.000
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,10 +40,15 @@ class MainUserScreen : AppCompatActivity(), View.OnClickListener {
         iv50 = findViewById(R.id.iV50)
         iv50.setOnClickListener(this)
         iv100 = findViewById(R.id.iV100)
+        iv100.setOnClickListener(this)
         iv150 = findViewById(R.id.iV150)
+        iv150.setOnClickListener(this)
         iv300 = findViewById(R.id.iV300)
+        iv300.setOnClickListener(this)
         iv500 = findViewById(R.id.iV500)
+        iv500.setOnClickListener(this)
         ivCustom = findViewById(R.id.iVcustom)
+        ivCustom.setOnClickListener(this)
         progressBar = findViewById(R.id.progressBar)
         progressBar.isVisible = true
         progressBar.progress = 0
@@ -75,17 +81,13 @@ class MainUserScreen : AppCompatActivity(), View.OnClickListener {
             }
             R.id.iV50 -> {
                 iv50.animate().apply {
-                    duration = 1000
+                    duration = 1500
                     rotationYBy(360f)
                 }.withEndAction {
 
                 }.start()
                 intakeTV.text = (parseInt(intakeTV.text.toString()) + 50).toString()
-               // progressBar.progress = (((intakeTV.text.toString()).toDouble()/(totalTV.text.toString()).toDouble())*100).toInt()
-                progress += (((intakeTV.text.toString()).toDouble() / (totalTV.text.toString()).toDouble()) * 100)
-                progressBar.progress = progress.toInt()
-                Toast.makeText(this, progressBar.progress.toString(),
-                    Toast.LENGTH_SHORT).show();
+                progressBar.progress += 50
             }
             R.id.iV100 -> {
                 iv100.animate().apply {
@@ -95,11 +97,7 @@ class MainUserScreen : AppCompatActivity(), View.OnClickListener {
 
                 }.start()
                 intakeTV.text = (parseInt(intakeTV.text.toString()) + 100).toString()
-                // progressBar.progress = (((intakeTV.text.toString()).toDouble()/(totalTV.text.toString()).toDouble())*100).toInt()
-                progress += (((intakeTV.text.toString()).toDouble() / (totalTV.text.toString()).toDouble()) * 100)
-                progressBar.progress = progress.toInt()
-                Toast.makeText(this, progressBar.progress.toString(),
-                    Toast.LENGTH_SHORT).show();
+                progressBar.progress += 100
             }
             R.id.iV150 -> {
                 iv150.animate().apply {
@@ -109,11 +107,7 @@ class MainUserScreen : AppCompatActivity(), View.OnClickListener {
 
                 }.start()
                 intakeTV.text = (parseInt(intakeTV.text.toString()) + 150).toString()
-                // progressBar.progress = (((intakeTV.text.toString()).toDouble()/(totalTV.text.toString()).toDouble())*100).toInt()
-                progress += (((intakeTV.text.toString()).toDouble() / (totalTV.text.toString()).toDouble()) * 100)
-                progressBar.progress = progress.toInt()
-                Toast.makeText(this, progressBar.progress.toString(),
-                    Toast.LENGTH_SHORT).show();
+                progressBar.progress += 150
             }
             R.id.iV300 -> {
                 iv300.animate().apply {
@@ -123,11 +117,7 @@ class MainUserScreen : AppCompatActivity(), View.OnClickListener {
 
                 }.start()
                 intakeTV.text = (parseInt(intakeTV.text.toString()) + 300).toString()
-                // progressBar.progress = (((intakeTV.text.toString()).toDouble()/(totalTV.text.toString()).toDouble())*100).toInt()
-                progress += (((intakeTV.text.toString()).toDouble() / (totalTV.text.toString()).toDouble()) * 100)
-                progressBar.progress = progress.toInt()
-                Toast.makeText(this, progressBar.progress.toString(),
-                    Toast.LENGTH_SHORT).show();
+                progressBar.progress += 300
             }
             R.id.iV500 -> {
                 iv500.animate().apply {
@@ -137,11 +127,7 @@ class MainUserScreen : AppCompatActivity(), View.OnClickListener {
 
                 }.start()
                 intakeTV.text = (parseInt(intakeTV.text.toString()) + 500).toString()
-                // progressBar.progress = (((intakeTV.text.toString()).toDouble()/(totalTV.text.toString()).toDouble())*100).toInt()
-                progress += (((intakeTV.text.toString()).toDouble() / (totalTV.text.toString()).toDouble()) * 100)
-                progressBar.progress = progress.toInt()
-                Toast.makeText(this, progressBar.progress.toString(),
-                    Toast.LENGTH_SHORT).show();
+                progressBar.progress += 500
             }
             R.id.iVcustom ->{
             }
