@@ -1,5 +1,6 @@
 package kunal.example.aquashots
 
+import android.annotation.SuppressLint
 import android.content.DialogInterface
 import android.content.Intent
 import android.media.Image
@@ -29,6 +30,7 @@ class MainUserScreen : AppCompatActivity(), View.OnClickListener {
     lateinit var iv300: ImageView
     lateinit var iv500: ImageView
     lateinit var ivCustom: ImageView
+    lateinit var minusBtn: Button
     var inputVal: Int = 0
 
 
@@ -52,6 +54,8 @@ class MainUserScreen : AppCompatActivity(), View.OnClickListener {
         iv500.setOnClickListener(this)
         ivCustom = findViewById(R.id.iVcustom)
         ivCustom.setOnClickListener(this)
+        minusBtn = findViewById(R.id.minusBtn)
+        minusBtn.setOnClickListener(this)
         progressBar = findViewById(R.id.progressBar)
         progressBar.isVisible = true
         progressBar.progress = 0
@@ -77,6 +81,7 @@ class MainUserScreen : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onClick(view: View?) {
         when (view?.id) {
             R.id.settingImgView -> {
@@ -134,6 +139,12 @@ class MainUserScreen : AppCompatActivity(), View.OnClickListener {
                 progressBar.progress += 500
             }
             R.id.iVcustom ->{
+                ivCustom.animate().apply {
+                    duration = 1000
+                    rotationYBy(360f)
+                }.withEndAction {
+
+                }.start()
                 val input = EditText(this)
                 val builder: AlertDialog.Builder = AlertDialog.Builder(this)
                 builder.setTitle("Custom Intake : ")
@@ -149,6 +160,24 @@ class MainUserScreen : AppCompatActivity(), View.OnClickListener {
                 builder.setNegativeButton("CANCEL") { dialog, _ -> dialog.cancel() }
                 builder.show()
 
+
+
+            }
+            R.id.minusBtn -> {
+                val minusInput = EditText(this)
+                val builder: AlertDialog.Builder = AlertDialog.Builder(this)
+                builder.setTitle("Minus Intake : ")
+                minusInput.hint = "Enter amount in ml you want to subtract"
+                minusInput.inputType = InputType.TYPE_CLASS_NUMBER
+                builder.setView(minusInput)
+                builder.setPositiveButton("OK") { _, _ ->
+                    minusInput.text.toString()
+                    inputVal = parseInt(minusInput.text.toString())
+                    intakeTV.text = (parseInt(intakeTV.text.toString()) - inputVal).toString()
+                    progressBar.progress -= inputVal
+                }
+                builder.setNegativeButton("CANCEL") { dialog, _ -> dialog.cancel() }
+                builder.show()
 
 
             }

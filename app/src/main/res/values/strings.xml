@@ -11,4 +11,7 @@
     <string name="sleep">Sleep Time</string>
     <string name="custom">Custom Target</string>
     <string name="update">Update</string>
+    <string name="_0">0</string>
+    <string name="_0_ml">0 ml</string>
+    <string name="intake_negative">Minus Intake</string>
 </resources>

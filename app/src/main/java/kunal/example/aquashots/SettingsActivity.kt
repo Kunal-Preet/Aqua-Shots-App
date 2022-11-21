@@ -33,10 +33,13 @@ class SettingsActivity : AppCompatActivity() {
     fun onClickUpdate(view: View) {
         if (!TextUtils.isEmpty(customET.text.toString())){
             MainUserScreen.totalIntake = parseInt(customET.text.toString())  //User can set their own target here
+            finish()
+
 
         }
         else{
             MainUserScreen.totalIntake = (parseInt(weightET.text.toString())*100/3.0).toInt() + parseInt(workoutET.text.toString())/6*7
+            finish()
 
         }
 

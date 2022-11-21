@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/aqua2port"
+    android:background="@drawable/aqua_shots_user"
     tools:context=".SettingsActivity">
 
     <TextView
@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="monospace"
         android:text="@string/settings"
-        android:textColor="#4E558A"
+        android:textColor="#086680"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/weight"
-        android:textColor="#4E558A"
+        android:textColor="#086680"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -43,7 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/workout"
-        android:textColor="#4E558A"
+        android:textColor="#086680"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -81,7 +81,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/custom"
-        android:textColor="#4E558A"
+        android:textColor="#086680"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/divider2"
@@ -126,7 +126,8 @@
         android:ems="10"
         android:hint="In ml/day"
         android:inputType="number"
-        android:textColorHint="#4E558A"
+        android:textColor="#4E558A"
+        android:textColorHint="#5B6295"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.876"
@@ -138,15 +139,16 @@
         android:id="@+id/weightET"
         android:layout_width="185dp"
         android:layout_height="48dp"
-        android:layout_marginTop="156dp"
+        android:layout_marginTop="52dp"
         android:ems="10"
         android:hint="In lbs"
         android:inputType="number"
-        android:textColorHint="#4E558A"
+        android:textColor="#086680"
+        android:textColorHint="#5B6295"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.461"
         app:layout_constraintStart_toEndOf="@+id/textViewWeight"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewSettings" />
 
     <EditText
         android:id="@+id/workoutET"
@@ -155,7 +157,8 @@
         android:ems="10"
         android:hint="In min/day"
         android:inputType="number"
-        android:textColorHint="#4E558A"
+        android:textColor="#086680"
+        android:textColorHint="#5B6295"
         app:layout_constraintBottom_toTopOf="@+id/sleepTimeBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.461"
@@ -172,6 +175,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/divider2" />
+        app:layout_constraintTop_toBottomOf="@+id/divider2"
+        app:layout_constraintVertical_bias="0.366" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
