@@ -37,6 +37,7 @@ class MainUserScreen : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_user_screen)
+        supportActionBar?.hide()
 
         settingsImgView = findViewById(R.id.settingImgView)
         settingsImgView.setOnClickListener(this)
@@ -60,10 +61,6 @@ class MainUserScreen : AppCompatActivity(), View.OnClickListener {
         progressBar.isVisible = true
         progressBar.progress = 0
         progressBar.max = 1000
-
-
-
-
     }
 
     override fun onResume() {

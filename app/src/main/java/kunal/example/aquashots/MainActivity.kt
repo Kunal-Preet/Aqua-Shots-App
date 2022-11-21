@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        supportActionBar?.hide()
 
         enterBtn = findViewById(R.id.enterBtn)
         enterBtn.setOnClickListener(this)
