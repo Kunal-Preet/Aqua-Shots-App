@@ -18,7 +18,7 @@ class MainUserScreen : AppCompatActivity(), View.OnClickListener {
 
     companion object{
         var totalIntake: Int = 0
-        var progressBarProgress = 0
+        //var progressBarProgress = 0
     }
     lateinit var settingsImgView: ImageView
     lateinit var totalTV: TextView
