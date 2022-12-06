@@ -1,25 +1,31 @@
 package kunal.example.aquashots
 
 import android.annotation.SuppressLint
-import android.content.DialogInterface
+import android.content.ContentValues.TAG
+import android.content.Context
 import android.content.Intent
-import android.media.Image
-import androidx.appcompat.app.AppCompatActivity
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.InputType
 import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import java.lang.Integer.parseInt
 
+
 class MainUserScreen : AppCompatActivity(), View.OnClickListener {
+
+
+
 
     companion object{
         var totalIntake: Int = 0
-        //var progressBarProgress = 0
+        const val sharedPrefFile = "sharedPrefs"
     }
+
     lateinit var settingsImgView: ImageView
     lateinit var totalTV: TextView
     lateinit var intakeTV: TextView
@@ -66,15 +72,57 @@ class MainUserScreen : AppCompatActivity(), View.OnClickListener {
     override fun onResume() {
         super.onResume()
         if(totalIntake!=0){
-            totalTV.text= totalIntake.toString()
+            totalTV.text = totalIntake.toString()
             progressBar.max = parseInt(totalTV.text.toString())
-
-
+        }else if(progressBar.progress!=0){
+            totalTV.text = totalIntake.toString()
+            progressBar.max = parseInt(totalTV.text.toString())
         }
-        else{
+        loadData()
+    }
 
+    override fun onPause() {
+        saveData()
+        super.onPause()
+    }
 
+    private fun saveData(){
+        val sharedPreferences: SharedPreferences = this.getSharedPreferences(sharedPrefFile,
+            Context.MODE_PRIVATE)
+        val editor:SharedPreferences.Editor =  sharedPreferences.edit()
+        if(totalIntake!=0) {
+            editor.putInt("INTAKE_TV", parseInt(intakeTV.text.toString()))
+            editor.putInt("TOTAL_TV", parseInt(totalTV.text.toString()))
+            editor.putInt("PROGRESS_MAX", progressBar.max)
+            editor.putInt("PROGRESS_NOW", progressBar.progress)
+            editor.commit()
+        }
+        editor.apply()
+        editor.commit()
 
+    }
+
+    private fun loadData(){
+        val sharedPreferences = getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
+        val sharedIntakeTV = sharedPreferences.getInt("INTAKE_TV",0)
+        val sharedTotalTV = sharedPreferences.getInt("TOTAL_TV",0)
+        val sharedProgressMax = sharedPreferences.getInt("PROGRESS_MAX",0)
+        val sharedProgressNow = sharedPreferences.getInt("PROGRESS_NOW",0)
+
+        if(sharedIntakeTV==0&&sharedTotalTV==0){
+
+        }else if(sharedTotalTV== totalIntake && sharedIntakeTV!=0){
+            totalTV.text = sharedTotalTV.toString()
+            progressBar.max = sharedProgressMax
+            intakeTV.text = sharedIntakeTV.toString()
+            progressBar.progress = sharedProgressNow
+            Log.d("From 1st total",totalTV.text.toString())
+            Log.d("From 1st total shared",sharedTotalTV.toString())
+        }else{
+            intakeTV.text = sharedIntakeTV.toString()
+            progressBar.progress = sharedProgressNow
+            Log.d("From 2 total",totalTV.text.toString())
+            Log.d("From 2 total shared",sharedTotalTV.toString())
         }
     }
 
@@ -156,15 +204,13 @@ class MainUserScreen : AppCompatActivity(), View.OnClickListener {
                 }
                 builder.setNegativeButton("CANCEL") { dialog, _ -> dialog.cancel() }
                 builder.show()
-
-
-
             }
+
             R.id.minusBtn -> {
                 val minusInput = EditText(this)
                 val builder: AlertDialog.Builder = AlertDialog.Builder(this)
                 builder.setTitle("Minus Intake : ")
-                minusInput.hint = "Enter amount in ml you want to subtract"
+                minusInput.hint = "in ml"
                 minusInput.inputType = InputType.TYPE_CLASS_NUMBER
                 builder.setView(minusInput)
                 builder.setPositiveButton("OK") { _, _ ->
@@ -175,8 +221,6 @@ class MainUserScreen : AppCompatActivity(), View.OnClickListener {
                 }
                 builder.setNegativeButton("CANCEL") { dialog, _ -> dialog.cancel() }
                 builder.show()
-
-
             }
         }
     }

@@ -10,6 +10,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     lateinit var enterBtn: Button
     lateinit var benefitsBtn: Button
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)

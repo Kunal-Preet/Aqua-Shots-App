@@ -5,7 +5,7 @@
     <string name="target">AQUA SHOTS TARGET</string>
     <string name="settings">SETTINGS</string>
     <string name="weight">Enter Weight</string>
-    <string name="notify">Notification Toggle</string>
+    <string name="notify">Notification Settings</string>
     <string name="workout">Workout Duration</string>
     <string name="wake">Wake up time</string>
     <string name="sleep">Sleep Time</string>
@@ -15,4 +15,7 @@
     <string name="_0_ml">0 ml</string>
     <string name="intake_negative">Minus Intake</string>
     <string name="benefits">Benefits of Water</string>
+    <string name="schedule_notification">Schedule Notification</string>
+    <string name="set_date">SET DATE</string>
+    <string name="set_time">SET TIME</string>
 </resources>
