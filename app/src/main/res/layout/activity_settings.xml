@@ -51,7 +51,7 @@
         app:layout_constraintHorizontal_bias="0.063"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewWeight"
-        app:layout_constraintVertical_bias="0.073" />
+        app:layout_constraintVertical_bias="0.054" />
 
     <TextView
         android:id="@+id/textView5"
@@ -116,7 +116,7 @@
         android:id="@+id/weightET"
         android:layout_width="185dp"
         android:layout_height="48dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="60dp"
         android:ems="10"
         android:hint="In lbs"
         android:inputType="number"
@@ -131,6 +131,7 @@
         android:id="@+id/workoutET"
         android:layout_width="185dp"
         android:layout_height="48dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="In min/day"
         android:inputType="number"
